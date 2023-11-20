@@ -1,28 +1,16 @@
-"use client";
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import rootReducer from "../rootReducer";
+'use client'
+import { configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import rootReducer from '../rootReducer'
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  whitelist: ["authSession", "client", "cart", "profile", "admin"],
-  debug: true,
-};
-const persistMiddleware = getDefaultMiddleware({
-  serializableCheck: false,
-});
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+  whitelist: ['authSession', 'client', 'cart', 'profile', 'admin'],
+  debug: true
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -32,14 +20,14 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        ignoredPaths: ["client", "authSession", "system"],
-      },
-    }),
-});
+        ignoredPaths: ['client', 'authSession', 'system']
+      }
+    })
+})
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)
 
-export default store;
+export default store

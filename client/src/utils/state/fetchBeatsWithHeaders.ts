@@ -1,7 +1,6 @@
-import { axiosGetter } from "../requests";
+import { axiosGetter } from '@/services/axios.service'
 
-export async function fetchBeatsWithHeaders(queryString: string) {
-  return await axiosGetter({
-    url: `beats${queryString}`,
-  });
-}
+export const fetchBeatsWithHeaders = async (queryString: string) =>
+  await axiosGetter({
+    url: `beats${queryString}`
+  })
