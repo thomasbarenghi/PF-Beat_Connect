@@ -12,7 +12,7 @@ const Audio = ({ beat }: Props) => {
       </audio>
     )
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 

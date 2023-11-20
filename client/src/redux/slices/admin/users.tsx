@@ -30,7 +30,7 @@ export const adminPostUser = createAsyncThunk(
 
       return { userResponse: response.data }
     } catch (error) {
-      console.log('Error de post', error)
+      console.error('Error de post', error)
       throw error
     }
   }
@@ -67,7 +67,7 @@ export const adminDeleteUser = createAsyncThunk(
       await dispatch(adminGetUsers())
       return { userResponse: response.data }
     } catch (error) {
-      console.log('error', error)
+      console.error('error', error)
       return rejectWithValue(error)
     }
   }

@@ -97,7 +97,6 @@ const BeatFilters = () => {
   const filters = useMemo(() => [prices, BPM, sort, currentPage, genre], [prices, BPM, sort, currentPage, genre])
 
   const delayedDispatch = debounce(() => {
-    console.log('dispatching')
     dispatch(
       fetchBeats({
         minPrice: prices.min,
@@ -148,8 +147,6 @@ const BeatFilters = () => {
   useEffect(() => {}, [mode])
 
   useEffect(() => {
-    console.log(beatGenre)
-
     dispatch(setGenresFilter(beatGenre.map((e: any) => e.value)))
   }, [beatGenre])
 

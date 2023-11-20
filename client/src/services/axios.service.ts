@@ -21,7 +21,6 @@ interface AxiosPoster {
   headers?: any
 }
 export const axiosPoster = async ({ url, body, headers }: AxiosPoster) => {
-  console.log('axiosPoster body', body)
   const { data: res } = await axios.post(serverUrl + url, body || {}, {
     headers: headers || {}
   })
@@ -35,7 +34,6 @@ interface AxiosGetter {
 }
 
 export const axiosGetter = async ({ url, headers }: AxiosGetter) => {
-  console.log('axiosGetter headers', headers)
   const { data: res } = await axios.get(serverUrl + url, {
     headers: headers || {}
   })

@@ -38,7 +38,7 @@ export const fetchGenres = createAsyncThunk('genres/fetchGenres', async (_, { re
     const { data: genresResponse } = await axios.get(`${serverUrl}genre`)
     return genresResponse
   } catch (error: any) {
-    console.log('ERROR', error)
+    console.error('error', error)
     return rejectWithValue(error.response.data.message)
   }
 })
@@ -57,7 +57,6 @@ const filtersSlice = createSlice({
         state.genresFilter = state.genresFilter.filter((genre) => genre !== action.payload)
         return
       }
-      console.log('setGenresFilter action.payload', action.payload)
       state.genresFilter = action.payload
     },
     setPriceFilter: (state, action) => {

@@ -3,7 +3,6 @@ import Querier from '@/services/querier.service'
 import { Toaster } from 'sonner'
 import I18nProvider from '@/context/providers/i18n.provider'
 import dynamic from 'next/dynamic'
-import { Outfit } from 'next/font/google'
 const Hoc = dynamic(async () => await import('@/context/providers/hoc.provider'), {
   ssr: false
 })
@@ -15,16 +14,10 @@ interface Props {
   children: React.ReactNode
 }
 
-const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['200', '300', '400', '500', '600', '700']
-})
-
 const RootLayout = (props: Props) => (
   <html lang='es'>
     <head />
-    <body className={outfit.className}>
+    <body>
       <I18nProvider>
         <ReduxProvider>
           <Querier>

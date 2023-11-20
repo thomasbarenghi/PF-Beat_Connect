@@ -31,7 +31,7 @@ export const adminPostBeat = createAsyncThunk(
 
       return { beatResponse: response.data }
     } catch (error) {
-      console.log('Error de post', error)
+      console.error('Error de post', error)
       throw error
     }
   }
@@ -67,7 +67,7 @@ export const adminDeleteBeat = createAsyncThunk(
       await dispatch(adminGetBeats())
       return { userResponse: response.data }
     } catch (error) {
-      console.log('error', error)
+      console.error('error', error)
       throw error
     }
   }

@@ -44,7 +44,6 @@ const HOC = ({ children }: Props) => {
 
       if (clientId && clientId !== undefined) {
         const session = (await dispatch(getUserData(clientId))) as any
-        console.log('session', session?.payload?.session?.softDelete)
         if (session?.payload?.session?.softDelete === true) {
           dispatch(resetReducer())
           router.push('/')
@@ -61,14 +60,14 @@ const HOC = ({ children }: Props) => {
         )
       }
     } catch (error) {
-      console.log('Error al iniciar con google', error)
+      console.error('Error al iniciar con google', error)
       dispatch(resetReducer())
       router.push('/')
     }
   }
 
   useEffect(() => {
-    console.log('GoogleSessionID', GoogleSessionID, loginMethod, clientId, params)
+    console.error('GoogleSessionID', GoogleSessionID, loginMethod, clientId, params)
     if (loginMethod === 'google' && GoogleSessionID) {
       const headers = { session: GoogleSessionID }
       googleAuth(headers)
@@ -83,7 +82,7 @@ const HOC = ({ children }: Props) => {
         headers
       })
     } catch (error) {
-      console.log('Error:', error)
+      console.error('Error:', error)
       dispatch(resetReducer())
       router.push('/')
     }
