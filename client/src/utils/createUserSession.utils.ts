@@ -26,6 +26,6 @@ export const getUserData = async ({ clientId }: any) => {
 
     return session
   } catch (error) {
-    console.log('Error al obtener los datos del usuario', error)
+    console.error('Error al obtener los datos del usuario', error)
   }
 }

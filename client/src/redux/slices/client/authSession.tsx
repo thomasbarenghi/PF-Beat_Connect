@@ -182,7 +182,6 @@ const authSession = createSlice({
       state.auth.loginMethod = action.payload
     },
     setGoogleSuccessful: (state, action) => {
-      console.log('setGoogleSuccessful', action.payload)
       state.auth.isLogged = true
       state.auth.tokenValid = true
       state.auth.google.googleSessionID = action.payload.googleSessionID

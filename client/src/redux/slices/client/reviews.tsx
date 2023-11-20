@@ -38,7 +38,7 @@ export const postClientReview = createAsyncThunk(
       await dispatch(fetchBeats({}))
       await dispatch(fetchFeaturedBeats())
     } catch (error) {
-      console.log('postClientReview error', error)
+      console.error('postClientReview error', error)
       throw error
     }
   }
@@ -64,7 +64,7 @@ export const deleteClientReview = createAsyncThunk(
 
       return response
     } catch (error) {
-      console.log('deleteClientReview error', error)
+      console.error('deleteClientReview error', error)
       throw error
     }
   }
@@ -92,7 +92,7 @@ export const editClientReview = createAsyncThunk(
       await dispatch(fetchBeats({}))
       return response
     } catch (error) {
-      console.log('editClientReview error', error)
+      console.error('editClientReview error', error)
       throw error
     }
   }

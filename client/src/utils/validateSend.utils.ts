@@ -75,7 +75,6 @@ export const submitManager = async ({
     Object.keys(formValues).length <= 0 ||
     Object.values(formValues).some((value) => value === null)
   ) {
-    console.log('errors', errors)
     throw new Error('Formulario invalido')
   }
 
