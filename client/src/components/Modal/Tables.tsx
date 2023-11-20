@@ -1,3 +1,4 @@
+'use client'
 import ModalPopUp from './Popup'
 import { useTranslation } from 'react-i18next'
 

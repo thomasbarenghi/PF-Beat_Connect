@@ -1,3 +1,4 @@
+'use client'
 import { toast } from 'sonner'
 import i18next from 'i18next'
 
@@ -19,12 +20,16 @@ export const selectFilteredBeats = (state: any) => {
         minBPM: BpmFilter.min,
         maxBPM: BpmFilter.max,
         minprice: priceFilter.min,
-        maxPrice: priceFilter.max
+        maxPrice: priceFilter.max,
+        genres: genresFilter,
+        name: '',
+        priceAmount: '',
+        BPM: ''
       }
 
       if (sorter) {
         if (sorter === 'default') {
-          beatFilters
+          return beatFilters
         } else if (sorter === 'Price-AS') {
           beatFilters.priceAmount = 'asc'
         } else if (sorter === 'Price-DES') {

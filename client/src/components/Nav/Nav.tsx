@@ -1,7 +1,7 @@
 'use client'
 import { usePathname } from 'next/navigation'
 import { NavModalItem } from '@/components'
-import NavItem from './XItem'
+import NavItem from './Item'
 
 interface ItemProps {
   name: string

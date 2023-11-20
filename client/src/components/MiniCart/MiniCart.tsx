@@ -3,7 +3,7 @@ import { useAppSelector } from '@/redux/hooks'
 import { useState } from 'react'
 import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
-import Modal from './XModal'
+import Modal from './Modal'
 
 const MiniCart = () => {
   const [t] = useTranslation('global')

@@ -3,10 +3,10 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { deleteFromCart } from '@/redux/slices/cart'
 import { type BeatsClass } from '@/interfaces'
-import BeatImage from '@/components/client/beat/BeatCard/Image'
-import Title from '@/components/client/beat/BeatCard/Title'
-import Price from '@/components/client/beat/BeatCard/Price'
-import AuthorName from '@/components/client/beat/BeatCard/Author'
+import BeatImage from '../Beat/BeatCard/Image'
+import Title from '../Beat/BeatCard/Title'
+import Price from '../Beat/BeatCard/Price'
+import AuthorName from '../Beat/BeatCard/Author'
 
 interface MiniCartItemProps {
   producto: BeatsClass

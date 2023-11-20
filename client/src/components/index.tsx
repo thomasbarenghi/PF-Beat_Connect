@@ -1,3 +1,4 @@
+'use client'
 // Masters
 export { default as Hero } from './Hero'
 export { default as SimpleHeader } from './SimpleHeader'

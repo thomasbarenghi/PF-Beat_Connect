@@ -1,3 +1,4 @@
+'use client'
 /* FUNCION DE REVIEWS: */
 /* 1) POST CLIENT REVIEW: Se crea un review y se guarda en la base de datos. */
 /* 2) DELETE CLIENT REVIEW: Se elimina un review de la base de datos. */

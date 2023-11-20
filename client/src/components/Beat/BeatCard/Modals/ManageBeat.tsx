@@ -1,6 +1,6 @@
 'use client'
 import { MiniModalBox } from '@/components'
-import Button from './XButton'
+import Button from './Button'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch } from '@/redux/hooks'
 import { deleteClientBeat, setActiveEditingBeat } from '@/redux/slices/client/beats'

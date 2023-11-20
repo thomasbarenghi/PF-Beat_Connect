@@ -1,3 +1,4 @@
+'use client'
 /* FUNCION DE BEATS: */
 /* 1) POST CLIENT BEAT: Se crea un beat y se guarda en la base de datos. */
 /* 2) DELETE CLIENT BEAT: Se elimina un beat de la base de datos. */

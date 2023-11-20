@@ -1,4 +1,4 @@
-import Content from './content'
+import Content from './_components/Content'
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 'use client'
 import { MiniModalBox } from '@/components'
-import Button from './XButton'
+import Button from './Button'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { setActiveBeatCreateReview, setActiveEditingReview } from '@/redux/slices/client/reviews'

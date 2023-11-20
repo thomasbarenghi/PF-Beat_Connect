@@ -1,3 +1,5 @@
+'use client'
+
 interface CheckboxGroupProps {
   label: string
   values: Array<{ value: string; label: string }>

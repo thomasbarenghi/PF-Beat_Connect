@@ -1,5 +1,5 @@
 'use client'
-import { Logo, Nav, UserBoxNav, Hamburger, PostBeat, BecomeSeller, EditBeat, AdminHeaderBar } from '@/components'
+import { Logo, Nav, UserBoxNav, Hamburger, BecomeSeller, EditBeat, AdminHeaderBar, PostBeat } from '@/components'
 import { ReactSVG } from 'react-svg'
 import { useRouter } from 'next/navigation'
 import { navPublicMobile, navHelp, navPublic } from './nav.lib'
@@ -27,7 +27,6 @@ const Header = () => {
   const [t] = useTranslation('global')
   const [hamburguerVisible, setHamburguerVisible] = useState(false)
   const [headerClass, setHeaderClass] = useState<any>({})
-
   const [postBeatVisible, setPostBeatVisible] = useState(false)
   const [editBeatVisible, setEditBeatVisible] = useState(false)
   const [becomeSellerVisible, setBecomeSellerVisible] = useState(false)
@@ -58,7 +57,6 @@ const Header = () => {
       <EditBeat visible={editBeatVisible} setVisible={setEditBeatVisible} />
       <header className='fixed z-30 flex  w-full  flex-col' style={headerClass}>
         <AdminHeaderBar />
-
         <div className='padding-x-estilo2 relative py-8 flex items-center justify-between align-middle'>
           <Logo />
           <HamburguerIcon setHamburguerVisible={setHamburguerVisible} hamburguerVisible={hamburguerVisible} />

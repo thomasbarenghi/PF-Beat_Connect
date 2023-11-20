@@ -1,3 +1,4 @@
+'use client'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'sonner'
 import { getUserData } from './authSession'

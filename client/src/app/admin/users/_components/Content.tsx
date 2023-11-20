@@ -12,7 +12,7 @@ const SellerDashboardOverview = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
 
-  const [elementToDelete, setElementToDelete] = useState(null) as any
+  const [elementToDelete, setElementToDelete] = useState<any>(null)
   const { users } = useAppSelector((state) => state.admin.users)
   const usersData = users
 
@@ -65,7 +65,9 @@ const SellerDashboardOverview = () => {
           {t('dashboardNav.edit')}
         </button>
         <button
-          onClick={() => setElementToDelete(item)}
+          onClick={() => {
+            setElementToDelete(item)
+          }}
           className=' hover:background-primary-red-700 text-sm-semibold
             border-radius-estilo2 text-red-700 '
         >

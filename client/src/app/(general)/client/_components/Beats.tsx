@@ -1,6 +1,5 @@
 'use client'
-import { BeatsGrid, ClientBeatsIndexer, Section } from '@/components'
-import ReviewsGrid from '@/components/client/review/ReviewGrid'
+import { BeatsGrid, ClientBeatsIndexer, Section, ReviewsGrid } from '@/components'
 import { useAppSelector } from '@/redux/hooks'
 
 const Beats = () => {

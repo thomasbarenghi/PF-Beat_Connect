@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-handler-names */
+'use client'
 interface SwitchFormProps {
   nameInput: string
   label: string

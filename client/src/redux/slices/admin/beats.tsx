@@ -1,3 +1,4 @@
+'use client'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { serverUrl } from '@/utils/config.const'
 import { toast } from 'sonner'

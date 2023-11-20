@@ -1,3 +1,4 @@
+'use client'
 import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/toolkit'
 import { serverUrl } from '@/utils/config.const'
 import axios from 'axios'

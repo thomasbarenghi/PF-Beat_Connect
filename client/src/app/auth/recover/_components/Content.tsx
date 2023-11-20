@@ -13,7 +13,7 @@ const Content = () => {
 
   const handleInput = (e: any) => {
     const { name, value } = e.target
-    const updatedError = ValidateRecoverMail(value) as any
+    const updatedError = ValidateRecoverMail(value)
     setErrors({ ...error, [name]: updatedError[name] })
   }
 

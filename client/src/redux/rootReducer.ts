@@ -1,3 +1,4 @@
+'use client'
 import { combineReducers } from '@reduxjs/toolkit'
 import cartReducer from './slices/cart'
 import profile from './slices/profile'

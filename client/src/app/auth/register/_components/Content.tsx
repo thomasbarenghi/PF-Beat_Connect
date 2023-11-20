@@ -17,7 +17,7 @@ const Content = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    const validationErrors = ValidateRegister(form, '*') as any
+    const validationErrors = ValidateRegister(form, '*')
     setErrors(validationErrors)
   }, [form])
 
@@ -26,7 +26,7 @@ const Content = () => {
   }
 
   const onClick = () => {
-    const validationErrors = ValidateRegister(form, '*') as any
+    const validationErrors = ValidateRegister(form, '*')
     setErrors(validationErrors)
     if (form.firstName && form.lastName && !validationErrors.firstName && !validationErrors.lastName) {
       setStep(2)

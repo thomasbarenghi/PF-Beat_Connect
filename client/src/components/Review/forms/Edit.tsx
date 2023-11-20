@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { editClientReview } from '@/redux/slices/client/reviews'
-import Form from './XForm'
+import Form from './Form'
 
 interface Props {
   manageEditReview: (value: boolean) => void

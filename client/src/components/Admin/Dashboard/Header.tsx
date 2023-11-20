@@ -7,7 +7,7 @@ const AdminHeaderBar = () => {
   const [t] = useTranslation('global')
   const pathname = usePathname()
   const router = useRouter()
-  const { isLogged, isAdmin } = useAppSelector((state) => state.client.authSession.auth)
+  const { isLogged, isAdmin } = useAppSelector((state) => state?.client?.authSession?.auth)
 
   if (pathname.startsWith('/admin') || pathname.startsWith('/auth') || !isAdmin || !isLogged) {
     return null

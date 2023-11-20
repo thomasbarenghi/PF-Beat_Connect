@@ -1,3 +1,4 @@
+'use client'
 import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/toolkit'
 import {
   buildQueryString,

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import ChatbotWindow from './XChatBotWindow'
+import ChatbotWindow from './ChatBotWindow'
 
 const LandBot = () => {
   const [isOpen, setIsOpen] = useState(false)

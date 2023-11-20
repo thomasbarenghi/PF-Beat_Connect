@@ -1,6 +1,6 @@
 'use client'
 import { MiniModalBox } from '@/components'
-import Button from './XButton'
+import Button from './Button'
 import { deleteFavoriteBeat, postFavoriteBeat } from '@/redux/slices/client/beats'
 import { useAppDispatch } from '@/redux/hooks'
 import { type BeatsClass } from '@/interfaces'

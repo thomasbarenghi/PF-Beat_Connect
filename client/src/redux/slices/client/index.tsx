@@ -1,3 +1,4 @@
+'use client'
 import { combineReducers } from '@reduxjs/toolkit'
 import authSession from './authSession'
 import beats from './beats'

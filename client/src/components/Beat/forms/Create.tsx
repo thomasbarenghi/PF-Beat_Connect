@@ -2,7 +2,7 @@
 import { Input } from '@/components'
 import { useState } from 'react'
 import { useAppDispatch } from '@/redux/hooks'
-import { ValidationCreateBeat } from '../../../validation/validationCreateBeat'
+import { ValidationCreateBeat } from '@/components/validation/validationCreateBeat'
 import { postClientBeat } from '@/redux/slices/client/beats'
 
 const FormCreateBeat = () => {

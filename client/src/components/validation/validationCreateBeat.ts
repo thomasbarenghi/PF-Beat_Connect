@@ -1,7 +1,7 @@
 'use client'
 import i18next from 'i18next'
 
-export const ValidationCreateBeat = (form: any, fieldsToValidate: any, mode: any) => {
+export const ValidationCreateBeat = (form: any, fieldsToValidate?: any, mode?: any) => {
   const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10 MB
   const MAX_WAV_SIZE = 150 * 1024 * 1042 // 150 MB
   const error = {} as any
