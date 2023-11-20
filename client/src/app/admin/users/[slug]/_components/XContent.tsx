@@ -1,10 +1,10 @@
 'use client'
-import { SellerDashboardLayout, IslandDashboard, AdminCreateBeatForm } from '@/components'
+import { SellerDashboardLayout, IslandDashboard, AdminCreateUserForm } from '@/components'
 
-import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useRef } from 'react'
 
-export default function Content() {
+const AdminUserCreate = () => {
   const [t] = useTranslation('global')
   const childRef = useRef<any>()
 
@@ -16,14 +16,16 @@ export default function Content() {
     <main>
       <SellerDashboardLayout
         topBarMode='action'
-        topBarMessage={t('adminBeatsCreate.title')}
+        topBarMessage={t('adminBeatsCreate.title2')}
         topBarButtonLabel={t('adminBeatsCreate.t1')}
         onClick={handleExternalSubmit}
       >
         <IslandDashboard className='flex flex-col gap-5 xl:gap-8 '>
-          <AdminCreateBeatForm mode='edit' ref={childRef} />
+          <AdminCreateUserForm mode='edit' ref={childRef} />
         </IslandDashboard>
       </SellerDashboardLayout>
     </main>
   )
 }
+
+export default AdminUserCreate

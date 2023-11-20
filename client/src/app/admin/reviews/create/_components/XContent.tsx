@@ -1,22 +1,19 @@
 'use client'
 import { SellerDashboardLayout, IslandDashboard, AdminCreateReviewForm } from '@/components'
-
-import { handleInputChange, handleSubmit, validateForm } from '@/data/formLogic'
-
+import { validateForm } from '@/utils/formLogic.utils'
 import { useState, useEffect, useRef } from 'react'
 import { useAppDispatch } from '@/redux/hooks'
 import { fetchGenres } from '@/redux/slices/filters'
 import { useTranslation } from 'react-i18next'
 
-export default function SellerDashboardOverview() {
+const SellerDashboardOverview = () => {
   const dispatch = useAppDispatch()
-  const formRef = useRef<any>()
   const validateMode = 'review'
-  const [fieldsToValidate, setFieldsToValidate] = useState([]) as any
-  const [error, setErrors] = useState({}) as any
+  const [fieldsToValidate] = useState([]) as any
+  const [setErrors] = useState({}) as any
   const [t] = useTranslation('global')
 
-  const [form, setForm] = useState({
+  const [form] = useState({
     createdBy: '',
     beat: '',
     comment: '',
@@ -24,10 +21,6 @@ export default function SellerDashboardOverview() {
     rating: '',
     softDelete: false
   })
-
-  const handleInput = (e: any) => {
-    handleInputChange(e, fieldsToValidate, setFieldsToValidate, form, setForm)
-  }
 
   useEffect(() => {
     dispatch(fetchGenres())
@@ -37,45 +30,6 @@ export default function SellerDashboardOverview() {
     setErrors(validateForm(form, fieldsToValidate, validateMode))
   }, [form, fieldsToValidate])
 
-  const onSubmit = (e: any) => {
-    handleSubmit({
-      form,
-      //  dispatch: dispatch,
-      // actionToDispatch: "user/create",
-      setErrors,
-      validateMode,
-      formRef: formRef.current
-    })
-  }
-
-  const arraySoftDelete = {
-    name: 'softDelete',
-    label: 'Soft Delete',
-    arrayButtons: [
-      {
-        text: 'Yes',
-        // segun is seller, dinamicamente se pone el active
-        active: form.softDelete,
-        handleAction: () => {
-          setForm({
-            ...form,
-            softDelete: true
-          })
-        }
-      },
-      {
-        text: 'No',
-        active: !form.softDelete,
-        handleAction: () => {
-          setForm({
-            ...form,
-            softDelete: false
-          })
-        }
-      }
-    ]
-  }
-  // ----------------------------
   const childRef = useRef<any>()
 
   const handleExternalSubmit = () => {
@@ -97,3 +51,5 @@ export default function SellerDashboardOverview() {
     </main>
   )
 }
+
+export default SellerDashboardOverview

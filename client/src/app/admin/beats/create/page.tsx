@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: 'Create Beat | BeatConnect'
 }
 
-export default function Page() {
-  return <Content />
-}
+const Page = () => <Content />
+
+export default Page

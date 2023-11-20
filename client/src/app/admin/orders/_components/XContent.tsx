@@ -1,16 +1,14 @@
 'use client'
 import { SellerDashboardLayout, IslandDashboard, DynamicTable, ModalTables } from '@/components'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks'
-import { adminGetOrders, adminDeleteOrder, setCurrentEditingOrder } from '@/redux/slices/admin/orders'
+import { adminGetOrders, adminDeleteOrder } from '@/redux/slices/admin/orders'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function Content() {
+const Content = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
-  const router = useRouter()
   const { orders } = useAppSelector((state) => state.admin.orders)
   const reviewsData = orders
   const [reviewToDelete, setReviewToDelete] = useState(null) as any
@@ -30,11 +28,6 @@ export default function Content() {
   const handleCloseModal = async () => {
     dispatch(adminGetOrders())
     setReviewToDelete(null)
-  }
-
-  const handleEdit = async (data: any) => {
-    await dispatch(setCurrentEditingOrder(data))
-    router.push(`/admin/reviews/${data._id}`)
   }
 
   const beatsFiltered = reviewsData.filter((item: any) => item.beat)
@@ -134,3 +127,5 @@ export default function Content() {
     </>
   )
 }
+
+export default Content

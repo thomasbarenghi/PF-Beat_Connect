@@ -4,11 +4,10 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks'
 import { adminGetReviews, adminDeleteReview, setCurrentEditingReview } from '@/redux/slices/admin/reviews'
-import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function SellerDashboardOverview() {
+const SellerDashboardOverview = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
   const router = useRouter()
@@ -29,7 +28,7 @@ export default function SellerDashboardOverview() {
   }
 
   const handleEdit = async (data: any) => {
-    await dispatch(setCurrentEditingReview(data))
+    dispatch(setCurrentEditingReview(data))
     router.push(`/admin/reviews/${data._id}`)
   }
 
@@ -114,3 +113,5 @@ export default function SellerDashboardOverview() {
     </>
   )
 }
+
+export default SellerDashboardOverview

@@ -3,7 +3,7 @@ import { SellerDashboardLayout, IslandDashboard, AdminCreateBeatForm } from '@/c
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function AdminUserCreate() {
+const AdminUserCreate = () => {
   const [t] = useTranslation('global')
   const childRef = useRef<any>(null)
 
@@ -24,3 +24,5 @@ export default function AdminUserCreate() {
     </SellerDashboardLayout>
   )
 }
+
+export default AdminUserCreate

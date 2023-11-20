@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: 'Edit Beat | BeatConnect'
 }
 
-export default function AdminBeatsCreate() {
-  return <Content />
-}
+const AdminBeatsCreate = () => <Content />
+
+export default AdminBeatsCreate

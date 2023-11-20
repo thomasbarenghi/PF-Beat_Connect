@@ -5,11 +5,10 @@ import { useRouter } from 'next/navigation'
 import { useState, useEffect, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { adminGetBeats, adminDeleteBeat, setCurrentEditingBeat } from '@/redux/slices/admin/beats'
-
 import { debounce } from 'lodash'
 import { useTranslation } from 'react-i18next'
 
-export default function SellerDashboardOverview() {
+const SellerDashboardOverview = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
   const router = useRouter()
@@ -32,7 +31,7 @@ export default function SellerDashboardOverview() {
   }
 
   const handleEdit = async (data: any) => {
-    await dispatch(setCurrentEditingBeat(data))
+    dispatch(setCurrentEditingBeat(data))
     router.push(`/admin/beats/${data._id}`)
   }
 
@@ -114,3 +113,5 @@ export default function SellerDashboardOverview() {
     </>
   )
 }
+
+export default SellerDashboardOverview

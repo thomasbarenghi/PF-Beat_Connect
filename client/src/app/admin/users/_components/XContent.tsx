@@ -7,14 +7,13 @@ import { useAppSelector, useAppDispatch } from '@/redux/hooks'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function SellerDashboardOverview() {
+const SellerDashboardOverview = () => {
   const [t] = useTranslation('global')
   const router = useRouter()
   const dispatch = useAppDispatch()
 
   const [elementToDelete, setElementToDelete] = useState(null) as any
   const { users } = useAppSelector((state) => state.admin.users)
-  const allUsers = useAppSelector((state) => state.admin.users.users)
   const usersData = users
 
   useEffect(() => {
@@ -27,7 +26,7 @@ export default function SellerDashboardOverview() {
   }
 
   const handleEdit = async (data: any) => {
-    await dispatch(setCurrentEditingUser(data))
+    dispatch(setCurrentEditingUser(data))
     router.push(`/admin/users/${data._id}`)
   }
 
@@ -104,3 +103,5 @@ export default function SellerDashboardOverview() {
     </>
   )
 }
+
+export default SellerDashboardOverview
