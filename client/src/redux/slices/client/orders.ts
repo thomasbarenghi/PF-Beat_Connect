@@ -50,7 +50,7 @@ const ordersSlice = createSlice({
         toast.success(trad)
       })
       .addCase(postClientOrder.rejected, () => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
   }
 })

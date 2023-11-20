@@ -1,11 +1,4 @@
 'use client'
-/* FUNCION DE BEATS: */
-/* 1) POST CLIENT BEAT: Se crea un beat y se guarda en la base de datos. */
-/* 2) DELETE CLIENT BEAT: Se elimina un beat de la base de datos. */
-/* 3) EDIT CLIENT BEAT: Se edita un beat de la base de datos. */
-/* 4) SET ACTIVE EDITING BEAT: Se setea el beat que se esta editando. */
-/* 5) SET BOUGTH BEATS: Se setean los beats comprados. */
-/* 6) SET OWNED BEATS: Se setean los beats creados. */
 import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/toolkit'
 import { toast } from 'sonner'
 import { getUserData } from './authSession'
@@ -152,14 +145,14 @@ const clientBeats = createSlice({
         toast.success(trad)
       })
       .addCase(postClientBeat.rejected, (state, action) => {
-        toast('action.payload')
+        toast('Error')
       })
       .addCase(deleteClientBeat.fulfilled, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Beat deleted successfully' : 'Beat borrado correctamente'
         toast.success(trad)
       })
       .addCase(deleteClientBeat.rejected, (state, action) => {
-        toast('action.payload')
+        toast('Error')
       })
 
       .addCase(editClientBeat.pending, (state, action) => {
@@ -174,13 +167,13 @@ const clientBeats = createSlice({
         toast.success(trad)
       })
       .addCase(editClientBeat.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(postFavoriteBeat.fulfilled, (state, action: PayloadAction<BeatsClass>) => {
         state.favoriteBeats.push(action.payload)
       })
       .addCase(postFavoriteBeat.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(deleteFavoriteBeat.fulfilled, (state, action: PayloadAction<BeatsClass>) => {
         state.favoriteBeats = state.favoriteBeats.filter((beat) => beat._id !== action.payload._id)

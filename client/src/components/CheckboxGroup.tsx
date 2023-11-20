@@ -4,7 +4,7 @@ interface CheckboxGroupProps {
   label: string
   values: Array<{ value: string; label: string }>
   seleccionados: Array<{ value: string; label: string }>
-  setSeleccionados: (seleccionados: Array<{ value: string; label: string }>) => void
+  setSeleccionados: (e: any) => void
 }
 
 const CheckboxGroup = ({ label, values, seleccionados, setSeleccionados }: CheckboxGroupProps) => (

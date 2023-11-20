@@ -98,7 +98,7 @@ export const recoverPassword = createAsyncThunk('authSession/recoverPassword', a
 // --------------------
 export const convertInSeller = createAsyncThunk(
   'authSession/convertInSeller',
-  async (data: { mpcode: string }, { rejectWithValue, getState }) => {
+  async (data: { mpcode: string }, { getState }) => {
     try {
       const clientId = getUserIdFromState(getState)
       const send = createSellerData(data)
@@ -113,21 +113,18 @@ export const convertInSeller = createAsyncThunk(
 
 // --------------------
 // EDIT CLIENT
-export const editClient = createAsyncThunk(
-  'authSession/editClient',
-  async (data: any, { rejectWithValue, getState }) => {
-    try {
-      const clientId = getUserIdFromState(getState)
-      const formData = createFormData(data)
-      const response = await updateUserData(clientId, formData)
-      const userResponse = createUserSession(response)
-      return { userResponse }
-    } catch (error) {
-      console.error('editClient error', error)
-      throw error
-    }
+export const editClient = createAsyncThunk('authSession/editClient', async (data: any, { getState }) => {
+  try {
+    const clientId = getUserIdFromState(getState)
+    const formData = createFormData(data)
+    const response = await updateUserData(clientId, formData)
+    const userResponse = createUserSession(response)
+    return { userResponse }
+  } catch (error) {
+    console.error('editClient error', error)
+    throw error
   }
-)
+})
 
 // --------------------
 // PASSWORD RECOVERY
@@ -145,62 +142,56 @@ export const passwordRecovery = createAsyncThunk('authSession/passwordRecovery',
 
 // --------------------
 // CHANGE PASSWORD
-export const changePassword = createAsyncThunk(
-  'authSession/changePassword',
-  async (data: any, { rejectWithValue, getState }) => {
-    try {
-      const clientId = getUserIdFromState(getState)
-      const formData = createFormData(data)
-      await updatePassword(clientId, formData)
-    } catch (error) {
-      console.error('changePassword error', error)
-      throw error
-    }
+export const changePassword = createAsyncThunk('authSession/changePassword', async (data: any, { getState }) => {
+  try {
+    const clientId = getUserIdFromState(getState)
+    const formData = createFormData(data)
+    await updatePassword(clientId, formData)
+  } catch (error) {
+    console.error('changePassword error', error)
+    throw error
   }
-)
+})
 
 // --------------------
 // GET USER DATA
-export const getUserData = createAsyncThunk(
-  'authSession/getUserData',
-  async (data: any, { rejectWithValue, getState, dispatch }) => {
-    const clientId = data || getUserIdFromState(getState)
-    try {
-      const response = await fetchUserData(clientId)
-      const { bougthBeats, ownedBeats, ownedReviews, orders, favoriteBeats, auth } = processUserData(response)
-      dispatch(setBougthBeats(bougthBeats))
-      dispatch(setOwnedBeats(ownedBeats))
-      dispatch(setOwnedReviews(ownedReviews))
-      dispatch(setOrders(orders))
-      dispatch(setFavoriteBeats(favoriteBeats))
-      const session = createUserSession(response)
-      return { auth, session }
-    } catch (error) {
-      console.error('getUserData error', error)
-      throw error
-    }
+export const getUserData = createAsyncThunk('authSession/getUserData', async (data: any, { getState, dispatch }) => {
+  const clientId = data || getUserIdFromState(getState)
+  try {
+    const response = await fetchUserData(clientId)
+    const { bougthBeats, ownedBeats, ownedReviews, orders, favoriteBeats, auth } = processUserData(response)
+    dispatch(setBougthBeats(bougthBeats))
+    dispatch(setOwnedBeats(ownedBeats))
+    dispatch(setOwnedReviews(ownedReviews))
+    dispatch(setOrders(orders))
+    dispatch(setFavoriteBeats(favoriteBeats))
+    const session = createUserSession(response)
+    return { auth, session }
+  } catch (error) {
+    console.error('getUserData error', error)
+    throw error
   }
-)
+})
 
 // ------------------ SLICE ------------------//
 const authSession = createSlice({
   name: 'authSession',
   initialState,
   reducers: {
-    setLoginMethod(state, action) {
+    setLoginMethod: (state, action) => {
       state.auth.loginMethod = action.payload
     },
-    setGoogleSuccessful(state, action) {
+    setGoogleSuccessful: (state, action) => {
       console.log('setGoogleSuccessful', action.payload)
       state.auth.isLogged = true
       state.auth.tokenValid = true
       state.auth.google.googleSessionID = action.payload.googleSessionID
     },
-    resetReducer(state) {
+    resetReducer: (state) => {
       state.auth = initialState.auth
       state.session = initialState.session
     },
-    setTheme(state, action) {
+    setTheme: (state, action) => {
       state.theme = action.payload
     }
   },
@@ -216,14 +207,14 @@ const authSession = createSlice({
         toast.success(trad)
       })
       .addCase(jsonLogin.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(jsonRegister.fulfilled, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Registered successfully' : 'Se registró correctamente'
         toast.success(trad)
       })
       .addCase(jsonRegister.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(convertInSeller.pending, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Becoming a seller...' : 'Se está convirtiendo en vendedor...'
@@ -235,7 +226,7 @@ const authSession = createSlice({
         toast.success(trad)
       })
       .addCase(convertInSeller.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(editClient.pending, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Editing...' : 'Se está editando...'
@@ -250,7 +241,7 @@ const authSession = createSlice({
         toast.success(trad)
       })
       .addCase(editClient.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(passwordRecovery.pending, (state, action) => {})
       .addCase(passwordRecovery.fulfilled, (state, action) => {
@@ -259,12 +250,6 @@ const authSession = createSlice({
             ? 'Your password has been changed successfully'
             : 'Tu contraseña se cambio correctamente'
         toast.success(trad)
-      })
-      .addCase(passwordRecovery.rejected, (state, action) => {
-        toast.error('action.payload')
-      })
-      .addCase(getUserData.pending, (state, action) => {
-        // state.actionStatus.getUserDataLoading = true;
       })
       .addCase(getUserData.fulfilled, (state, action) => {
         if (action.payload.session.softDelete) {
@@ -281,15 +266,10 @@ const authSession = createSlice({
           ...action.payload.session
         }
         state.auth = { ...state.auth, ...action.payload.auth }
-
-        //   state.actionStatus.getUserDataLoading = false;
       })
       .addCase(getUserData.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
-
-      // --------------------
-      // RECOVER PASSWORD
       .addCase(recoverPassword.pending, (state, action) => {
         const trad =
           i18next?.language === 'en'
@@ -302,11 +282,8 @@ const authSession = createSlice({
         toast.success(trad)
       })
       .addCase(recoverPassword.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
-
-      // --------------------
-      // CHANGE PASSWORD
       .addCase(changePassword.pending, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Changing password...' : 'Se está cambiando la contraseña...'
         toast(trad)
@@ -316,7 +293,7 @@ const authSession = createSlice({
         toast.success(trad)
       })
       .addCase(changePassword.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
   }
 })

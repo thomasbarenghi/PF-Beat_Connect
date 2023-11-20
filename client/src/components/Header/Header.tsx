@@ -55,7 +55,7 @@ const Header = () => {
       <BecomeSeller visible={becomeSellerVisible} setVisible={setBecomeSellerVisible} />
       <PostBeat visible={postBeatVisible} setVisible={setPostBeatVisible} />
       <EditBeat visible={editBeatVisible} setVisible={setEditBeatVisible} />
-      <header className='fixed z-30 flex  w-full  flex-col' style={headerClass}>
+      <header className='fixed z-30 flex  w-full justify-center items-center  flex-col' style={headerClass}>
         <AdminHeaderBar />
         <div className='padding-x-estilo2 relative py-8 flex items-center justify-between align-middle'>
           <Logo />

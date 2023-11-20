@@ -131,7 +131,7 @@ const reviewsSlice = createSlice({
         toast.success(trad)
       })
       .addCase(postClientReview.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(postClientReview.pending, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Creating review...' : 'Creando review...'
@@ -145,7 +145,7 @@ const reviewsSlice = createSlice({
         toast.success(trad)
       })
       .addCase(deleteClientReview.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(deleteClientReview.pending, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Deleting review...' : 'Eliminando review...'
@@ -159,7 +159,7 @@ const reviewsSlice = createSlice({
         toast.success(trad)
       })
       .addCase(editClientReview.rejected, (state, action) => {
-        toast.error('action.payload')
+        toast.error('Error')
       })
       .addCase(editClientReview.pending, (state, action) => {
         const trad = i18next?.language === 'en' ? 'Editing review...' : 'Editando review...'
