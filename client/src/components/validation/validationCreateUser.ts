@@ -1,7 +1,8 @@
+'use client'
 import i18next from 'i18next'
 
-export const ValidationCreateUser = (form, fieldsToValidate) => {
-  const error = {}
+export const ValidationCreateUser = (form: any, fieldsToValidate: any) => {
+  const error = {} as any
   const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10 MB
   const regexImage = /\.jpg$|\.png$/i
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
@@ -12,7 +13,7 @@ export const ValidationCreateUser = (form, fieldsToValidate) => {
     fieldsToValidate = Object.keys(form)
   }
 
-  fieldsToValidate.forEach((field) => {
+  fieldsToValidate.forEach((field: any) => {
     switch (field) {
       case 'username':
         if (form.username.length < 1 || form.username.length > 50 || !form.username) {

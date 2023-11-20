@@ -1,7 +1,8 @@
+'use client'
 import i18next from 'i18next'
 
-export function ValidateAuth(data) {
-  const error = {}
+export const ValidateAuth = (data: any) => {
+  const error = {} as any
   const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
@@ -9,7 +10,7 @@ export function ValidateAuth(data) {
   console.log('soy la data pass', data.password)
 
   if (!regexEmail.test(data.email) && data.email) {
-    if (i18next?.language == 'en') {
+    if (i18next?.language === 'en') {
       error.email = 'Please enter a valid email address.'
     } else {
       error.email = 'Por favor ingresa un email válido'
@@ -17,7 +18,7 @@ export function ValidateAuth(data) {
   }
 
   if (!regexPassword.test(data.password) && data.password) {
-    if (i18next?.language == 'en') {
+    if (i18next?.language === 'en') {
       error.password =
         'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
     } else {
@@ -28,3 +29,5 @@ export function ValidateAuth(data) {
 
   return error
 }
+
+export default ValidateAuth

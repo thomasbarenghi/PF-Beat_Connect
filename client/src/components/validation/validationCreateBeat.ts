@@ -1,10 +1,10 @@
 'use client'
 import i18next from 'i18next'
 
-export const ValidationCreateBeat = (form, fieldsToValidate, mode) => {
+export const ValidationCreateBeat = (form: any, fieldsToValidate: any, mode: any) => {
   const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10 MB
   const MAX_WAV_SIZE = 150 * 1024 * 1042 // 150 MB
-  const error = {}
+  const error = {} as any
 
   const regexName = /^.{1,50}$/
   const regexImage = /\.jpg$|\.png$/i
@@ -16,7 +16,7 @@ export const ValidationCreateBeat = (form, fieldsToValidate, mode) => {
     fieldsToValidate = Object.keys(form)
   }
 
-  fieldsToValidate.forEach((field) => {
+  fieldsToValidate.forEach((field: any) => {
     switch (field) {
       case 'name':
         if (!regexName.test(form.name)) {

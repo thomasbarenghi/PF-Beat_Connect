@@ -1,11 +1,10 @@
-import { axiosPutter } from '../requests'
+import { axiosPutter } from '@/services/axios.service'
 
-export async function updateUserData(clientId: string, data: any) {
-  return await axiosPutter({
+export const updateUserData = async (clientId: string, data: any) =>
+  await axiosPutter({
     url: `user/${clientId}`,
     body: data,
     headers: {
       userid: clientId
     }
   })
-}

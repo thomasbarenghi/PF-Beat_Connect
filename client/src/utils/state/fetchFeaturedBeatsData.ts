@@ -1,7 +1,6 @@
-import { axiosGetter } from '../requests'
+import { axiosGetter } from '@/services/axios.service'
 
-export async function fetchFeaturedBeatsData() {
-  return await axiosGetter({
+export const fetchFeaturedBeatsData = async () =>
+  await axiosGetter({
     url: 'beats?relevance=desc&limit=5'
   })
-}

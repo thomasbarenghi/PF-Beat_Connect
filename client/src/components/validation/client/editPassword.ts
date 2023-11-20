@@ -1,7 +1,8 @@
+'use client'
 import i18next from 'i18next'
 
-export function validationEditPassword(form, fieldsToValidate) {
-  const error = {}
+export const validationEditPassword = (form: any, fieldsToValidate: any) => {
+  const error = {} as any
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
   if (fieldsToValidate === '*') {
@@ -11,11 +12,11 @@ export function validationEditPassword(form, fieldsToValidate) {
 
   // oldRegisteredPassword = getState().client.authSession.session.CONTRASEÑA
 
-  fieldsToValidate.forEach((field) => {
+  fieldsToValidate.forEach((field: any) => {
     switch (field) {
       case 'oldPassword':
         if (!regexPassword.test(form.oldPassword)) {
-          if (i18next?.language == 'en') {
+          if (i18next?.language === 'en') {
             error.oldPassword =
               'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character; in addition to a minimum of 8 characters.'
           } else {
@@ -29,7 +30,7 @@ export function validationEditPassword(form, fieldsToValidate) {
         break
       case 'newPassword':
         if (!regexPassword.test(form.newPassword)) {
-          if (i18next?.language == 'en') {
+          if (i18next?.language === 'en') {
             error.newPassword =
               'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character; in addition to a minimum of 8 characters.'
           } else {

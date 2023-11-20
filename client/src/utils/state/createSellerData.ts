@@ -1,3 +1,1 @@
-export function createSellerData(data: { mpcode: string }) {
-  return { seller: 'VENDEDOR', mpcode: data.mpcode }
-}
+export const createSellerData = (data: { mpcode: string }) => ({ seller: 'VENDEDOR', mpcode: data.mpcode })

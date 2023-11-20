@@ -44,9 +44,9 @@ export { default as ProfileCard } from './User/ProfileCard'
 export { default as FormCreateBeat } from './Beat/forms/Create'
 // clientDataComponents
 // Dashboard
-export { default as SellerDashboardLayout } from './Admin/dashboard/SellerLayout'
-export { default as IslandDashboard } from './Admin/dashboard/Island'
-export { default as DashboardItem } from './Admin/dashboard/Item'
+export { default as SellerDashboardLayout } from './Admin/Dashboard/SellerLayout'
+export { default as IslandDashboard } from './Admin/Dashboard/Island'
+export { default as DashboardItem } from './Admin/Dashboard/Item'
 // Layout
 export { default as Search } from './Search'
 // Tbles
@@ -56,20 +56,20 @@ export { default as DynamicTable } from './Table/Table'
 export { default as FormColumn } from './Form/Column'
 export { default as FormContainer } from './Form/Container'
 export { default as FormRow } from './Form/Row'
-export { default as AdminCreateUserForm } from './Admin/dashboard/forms/adminCreateUser'
-export { default as AdminCreateReviewForm } from './Admin/dashboard/forms/adminCreateReview'
-export { default as AdminCreateBeatForm } from './Admin/dashboard/forms/adminCreateBeat'
+export { default as AdminCreateUserForm } from './Admin/Dashboard/forms/CreateUser'
+export { default as AdminCreateReviewForm } from './Admin/Dashboard/forms/CreateReview'
+export { default as AdminCreateBeatForm } from './Admin/Dashboard/forms/CreateBeat'
 export { default as EditClientForm } from './User/forms/EditAccount'
 export { default as EditPasswordForm } from './User/forms/EditPassword'
 export { default as RecoveryPasswordForm } from './User/forms/RecoverPassword'
 export { default as BeatReviewPopup } from './Review/ReviewPopup'
 export { default as EditReviewForm } from './Review/forms/Edit'
 
-export { default as AdminHeaderBar } from './Admin/dashboard/Header'
+export { default as AdminHeaderBar } from './Admin/Dashboard/Header'
 export { default as DynamicTableLight } from './Table/TableLight'
 // export { default as BeatImage } from "./beat/beatImage";
 // export { default as Checkbox } from "./common/checkbox";
-export { default as HamburgerAdmin } from './Admin/dashboard/Hamburguer'
+export { default as HamburgerAdmin } from './Admin/Dashboard/Hamburguer'
 // ------------------ NUEVO ------------------//
 // Help
 export { default as FaqsGrid } from './FaqGrid/FaqGrid'
@@ -80,7 +80,7 @@ export { default as MultiBoldText } from './MultiBoldText'
 export { default as PaginateBeats } from './Beat/Paginator'
 export { default as ReviewsGrid } from './Beat/Paginator'
 export { default as BeatsSpecialSection } from './Beat/SpecialSection'
-export { default as BeatFilters } from './XBeatFilters'
+export { default as BeatFilters } from './BeatFilters'
 export { default as BeatCard } from './Beat/BeatCard/BeatCard'
 
 // Layout

@@ -1,8 +1,8 @@
-import { type BeatsClass } from '@/types'
-import { axiosPoster } from '../requests'
+import { type BeatsClass } from '@/interfaces'
+import { axiosPoster } from '@/services/axios.service'
 
-export async function uploadClientBeat(data: BeatsClass, userId: string) {
-  return await axiosPoster({
+export const uploadClientBeat = async (data: BeatsClass, userId: string) =>
+  await axiosPoster({
     url: 'beats',
     body: data,
     headers: {
@@ -10,4 +10,3 @@ export async function uploadClientBeat(data: BeatsClass, userId: string) {
       userid: userId
     }
   })
-}

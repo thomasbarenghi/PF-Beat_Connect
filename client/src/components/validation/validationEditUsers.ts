@@ -1,6 +1,6 @@
-const ValidationEditUsers = (form, fieldsToValidate) => {
+export const ValidationEditUsers = (form: any, fieldsToValidate: any) => {
   const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10 MB
-  const error = {}
+  const error = {} as any
   const regexImage = /\.jpg$|\.png$/i
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -8,7 +8,7 @@ const ValidationEditUsers = (form, fieldsToValidate) => {
     fieldsToValidate = Object.keys(form)
   }
 
-  fieldsToValidate.forEach((field) => {
+  fieldsToValidate.forEach((field: any) => {
     switch (field) {
       case 'username':
         if (form.username.length < 2) error.username = 'You must enter a username minimo 2'

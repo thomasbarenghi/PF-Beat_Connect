@@ -1,7 +1,7 @@
-import { axiosPutter } from '../requests'
+import { axiosPutter } from '@/services/axios.service'
 
-export async function updateClientBeat(formData: FormData, beatId: string, userId: string) {
-  return await axiosPutter({
+export const updateClientBeat = async (formData: FormData, beatId: string, userId: string) =>
+  await axiosPutter({
     url: `beats/${beatId}`,
     body: formData,
     headers: {
@@ -9,4 +9,3 @@ export async function updateClientBeat(formData: FormData, beatId: string, userI
       'Content-Type': 'multipart/form-data'
     }
   })
-}

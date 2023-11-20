@@ -1,4 +1,4 @@
-export function createFormData(data: any) {
+export const createFormData = (data: any) => {
   const formData = new FormData()
   Object.keys(data).forEach((key) => {
     formData.append(key, data[key])

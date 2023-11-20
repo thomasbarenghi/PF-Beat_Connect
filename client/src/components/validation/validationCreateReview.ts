@@ -1,14 +1,14 @@
 'use client'
 import i18next from 'i18next'
 
-export const ValidationCreateReview = (form, fieldsToValidate) => {
-  const error = {}
+export const ValidationCreateReview = (form: any, fieldsToValidate: any) => {
+  const error = {} as any
 
   if (fieldsToValidate === '*') {
     fieldsToValidate = Object.keys(form)
   }
 
-  fieldsToValidate.forEach((field) => {
+  fieldsToValidate.forEach((field: any) => {
     switch (field) {
       case 'createdBy':
         if (!form.createdBy || form.createdBy === '') {

@@ -1,7 +1,7 @@
-import { type BeatsClass, type ReviewsClass } from '@/types'
+import { type BeatsClass, type ReviewsClass } from '@/interfaces'
 import { createUserSession } from '../createUserSession.utils'
 
-export function processUserData(response: any) {
+export const processUserData = (response: any) => {
   const bougthBeats = processBeats(response.bougthBeats)
   const ownedBeats = processBeats(response.createdBeats)
   const ownedReviews = processReviews(response.userReviews)
@@ -26,17 +26,12 @@ export function processUserData(response: any) {
   }
 }
 
-// Helper function to process beats
-function processBeats(beats: BeatsClass[]) {
-  return beats
+const processBeats = (beats: BeatsClass[]) =>
+  beats
     .filter((beat: BeatsClass) => !beat.softDelete)
     .map((beat: BeatsClass) => ({
       ...beat,
       review: processReviews(beat.review)
     })) as BeatsClass[]
-}
 
-// Helper function to process reviews
-function processReviews(reviews: ReviewsClass[]) {
-  return reviews.filter((review: ReviewsClass) => !review.softDelete)
-}
+const processReviews = (reviews: ReviewsClass[]) => reviews.filter((review: ReviewsClass) => !review.softDelete)
