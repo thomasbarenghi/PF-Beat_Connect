@@ -48,7 +48,7 @@ const Content = () => {
         router.push('/auth')
       }, 2000)
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

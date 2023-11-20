@@ -47,7 +47,7 @@ export const selectFilteredBeats = (state: any) => {
 
       return beatFilters
     } catch (error) {
-      console.log(error)
+      console.error(error)
       const trad =
         i18next?.language === 'en'
           ? 'An error occurred, please reload the page.'

@@ -65,9 +65,7 @@ export const fetchCurrentAuthor = createAsyncThunk('beats/fetchCurrentAuthor', a
   const response = await axiosGetter({
     url: `user/${id}`
   })
-
   const { firstName, lastName, id: idR, image, username, bio, backImage } = response
-  console.log('response.createdBeats', response.createdBeats)
   const currentAuthor = {
     firstName,
     lastName,
@@ -89,7 +87,6 @@ const beatsSlice = createSlice({
       state.activeItemDetail = action.payload
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
-      console.log('setCurrentPage action.payload', action.payload)
       state.pageIndex = action.payload
       state.pages.current = action.payload
     },
@@ -125,7 +122,6 @@ const beatsSlice = createSlice({
       })
       .addCase(fetchCurrentAuthor.fulfilled, (state, action) => {
         const { beats, currentAuthor } = action.payload
-        console.log('fetchCurrentAuthor', action.payload)
         state.currentAuthor = currentAuthor as any
         state.currentAuthorBeats = beats
         state.loadingcurrentAuthor = false

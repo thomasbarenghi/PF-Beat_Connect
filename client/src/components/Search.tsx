@@ -38,7 +38,7 @@ const Search = ({ colorMode, sizeMode, className, response, value }: Props) => {
           try {
             response(e.target.value)
           } catch (error) {
-            console.log(error)
+            console.error(error)
           }
         }}
       />

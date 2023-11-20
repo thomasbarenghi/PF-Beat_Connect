@@ -6,9 +6,6 @@ export const ValidateAuth = (data: any) => {
   const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
-  console.log('soy la data email', data.email)
-  console.log('soy la data pass', data.password)
-
   if (!regexEmail.test(data.email) && data.email) {
     if (i18next?.language === 'en') {
       error.email = 'Please enter a valid email address.'
