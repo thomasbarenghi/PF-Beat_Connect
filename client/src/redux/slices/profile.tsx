@@ -1,18 +1,19 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+'use client'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  settingsActiveIndex: 0,
-};
+  settingsActiveIndex: 0
+}
 
 const cartSlice = createSlice({
-  name: "profile",
+  name: 'profile',
   initialState,
   reducers: {
-    setSettingsActiveIndex(state, action) {
-      state.settingsActiveIndex = action.payload;
-    },
-  },
-});
+    setSettingsActiveIndex: (state, action) => {
+      state.settingsActiveIndex = action.payload
+    }
+  }
+})
 
-export const { setSettingsActiveIndex } = cartSlice.actions;
-export default cartSlice.reducer;
+export const { setSettingsActiveIndex } = cartSlice.actions
+export default cartSlice.reducer

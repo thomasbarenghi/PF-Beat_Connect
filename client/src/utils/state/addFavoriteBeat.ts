@@ -1,11 +1,10 @@
-import { axiosPutter } from "../requests";
+import { axiosPutter } from '@/services/axios.service'
 
-export async function addFavoriteBeat(formData: FormData, userId: string) {
-  return await axiosPutter({
+export const addFavoriteBeat = async (formData: FormData, userId: string) =>
+  await axiosPutter({
     url: `user/${userId}`,
     body: formData,
     headers: {
-      userid: userId,
-    },
-  });
-}
+      userid: userId
+    }
+  })

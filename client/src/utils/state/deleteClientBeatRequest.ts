@@ -1,10 +1,9 @@
-import { axiosDeleter } from "../requests";
+import { axiosDeleter } from '@/services/axios.service'
 
-export async function deleteClientBeatRequest(beatId: string, userId: string) {
-  return await axiosDeleter({
+export const deleteClientBeatRequest = async (beatId: string, userId: string) =>
+  await axiosDeleter({
     url: `beats/${beatId}`,
     headers: {
-      userid: userId,
-    },
-  });
-}
+      userid: userId
+    }
+  })

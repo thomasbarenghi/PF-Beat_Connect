@@ -1,11 +1,11 @@
-import { axiosPutter } from "../requests";
+import { axiosPutter } from '@/services/axios.service'
 
-export async function updatePassword(clientId: string, formData: FormData) {
+export const updatePassword = async (clientId: string, formData: FormData) => {
   await axiosPutter({
     url: `user/${clientId}`,
     body: formData,
     headers: {
-      userid: clientId,
-    },
-  });
+      userid: clientId
+    }
+  })
 }
