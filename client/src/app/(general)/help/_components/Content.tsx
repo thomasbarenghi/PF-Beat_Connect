@@ -3,7 +3,7 @@ import { FaqsGrid, ChatbotWindow } from '@/components'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function Content() {
+const Content = () => {
   const [t] = useTranslation('global')
   const [modal, setModal] = useState(false)
 
@@ -31,3 +31,5 @@ export default function Content() {
     </>
   )
 }
+
+export default Content

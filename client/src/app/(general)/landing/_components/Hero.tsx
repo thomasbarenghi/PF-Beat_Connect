@@ -3,7 +3,7 @@ import { Hero } from '@/components'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 
-export default function HeroSection() {
+const HeroSection = () => {
   const [t] = useTranslation('global')
   return (
     <>
@@ -32,3 +32,5 @@ export default function HeroSection() {
     </>
   )
 }
+
+export default HeroSection

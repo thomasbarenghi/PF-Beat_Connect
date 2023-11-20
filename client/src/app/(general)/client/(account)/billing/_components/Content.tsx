@@ -4,15 +4,14 @@ import { useTranslation } from 'react-i18next'
 import { useAppSelector } from '@/redux/hooks'
 import { useEffect, useState } from 'react'
 import { rowsBuilder } from './Operation'
+import { type Order } from '@/interfaces'
 
 const Content = () => {
   const [t] = useTranslation('global')
   const [montoVar, setMontoVar] = useState('')
   const [operacionVar, setOperacionVar] = useState('')
   const [fechaVar, setFechaVar] = useState('')
-
-  const beats = useAppSelector((state) => state.client.orders.orders) as any
-  const beatsFiltered = beats.filter((item: any) => item.beat)
+  const beats = useAppSelector((state) => state.client.orders.orders) as Order[]
 
   useEffect(() => {
     setMontoVar(t('billing.t2').toLocaleLowerCase())
@@ -21,7 +20,7 @@ const Content = () => {
   }, [t('billing.t2'), t('billing.t3'), t('billing.t4')])
 
   const headers = ['Beat', t('billing.t2'), t('billing.t3'), t('billing.t4')]
-  const rows = rowsBuilder(beatsFiltered, t, montoVar, operacionVar, fechaVar)
+  const rows = rowsBuilder(beats, t, montoVar, operacionVar, fechaVar)
 
   return (
     <Section subClassName='w-full gap-estilo2 flex flex-col'>

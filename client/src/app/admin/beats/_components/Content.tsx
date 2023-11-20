@@ -7,13 +7,14 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { adminGetBeats, adminDeleteBeat, setCurrentEditingBeat } from '@/redux/slices/admin/beats'
 import { debounce } from 'lodash'
 import { useTranslation } from 'react-i18next'
+import { type BeatsClass } from '@/interfaces'
 
 const SellerDashboardOverview = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
   const router = useRouter()
   const beatData = useAppSelector((state) => state.admin.beats.beats) || []
-  const [beatToDelete, setBeatToDelete] = useState(null) as any
+  const [beatToDelete, setBeatToDelete] = useState<BeatsClass | null>(null)
   const delayedAdminGetBeats = useMemo(() => debounce(async () => await dispatch(adminGetBeats()), 500), [dispatch])
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const SellerDashboardOverview = () => {
     setBeatToDelete(null)
   }
 
-  const handleEdit = async (data: any) => {
+  const handleEdit = async (data: BeatsClass) => {
     dispatch(setCurrentEditingBeat(data))
     router.push(`/admin/beats/${data._id}`)
   }
@@ -75,7 +76,9 @@ const SellerDashboardOverview = () => {
           {t('dashboardNav.edit')}
         </button>
         <button
-          onClick={() => setBeatToDelete(item)}
+          onClick={() => {
+            setBeatToDelete(item)
+          }}
           className=' hover:background-primary-red-700 text-sm-semibold
               border-radius-estilo2 text-red-700 '
         >

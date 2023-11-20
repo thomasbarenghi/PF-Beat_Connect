@@ -11,7 +11,7 @@ const Content = () => {
   const dispatch = useAppDispatch()
   const [error, setErrors] = useState({}) as any
 
-  const handleInput = (e: any) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     const updatedError = ValidateRecoverMail(value)
     setErrors({ ...error, [name]: updatedError[name] })

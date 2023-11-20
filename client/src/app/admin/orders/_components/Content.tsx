@@ -5,13 +5,14 @@ import { useAppSelector, useAppDispatch } from '@/redux/hooks'
 import { adminGetOrders, adminDeleteOrder } from '@/redux/slices/admin/orders'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { type Order } from '@/interfaces'
 
 const Content = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
   const { orders } = useAppSelector((state) => state.admin.orders)
   const reviewsData = orders
-  const [reviewToDelete, setReviewToDelete] = useState(null) as any
+  const [reviewToDelete, setReviewToDelete] = useState<Order | null>(null)
   const headers = [
     'Beat',
     t('adminCreateUser.t1'),
@@ -30,7 +31,7 @@ const Content = () => {
     setReviewToDelete(null)
   }
 
-  const beatsFiltered = reviewsData.filter((item: any) => item.beat)
+  const beatsFiltered = reviewsData.filter((item) => item.beat)
 
   const [buyerVar, setBuyerVar] = useState('')
   const [sellerVar, setSellerVar] = useState('')
@@ -51,7 +52,7 @@ const Content = () => {
     t('adminCreateUser.t5')
   ])
 
-  const rows = beatsFiltered.map((item: any) => ({
+  const rows = beatsFiltered.map((item) => ({
     beat: (
       <div className='flex items-center gap-4 '>
         <Image
@@ -94,7 +95,9 @@ const Content = () => {
     [actionsVar]: (
       <div className='flex w-max gap-4' key={item._id}>
         <button
-          onClick={() => setReviewToDelete(item)}
+          onClick={() => {
+            setReviewToDelete(item)
+          }}
           className=' hover:background-primary-red-700 text-sm-semibold
                 border-radius-estilo2 text-red-700 '
         >

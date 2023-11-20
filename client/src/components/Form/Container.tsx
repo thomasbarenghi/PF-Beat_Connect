@@ -2,6 +2,6 @@ interface FormContainerProps {
   children: React.ReactNode
 }
 
-export default function FormContainer({ children }: FormContainerProps) {
-  return <div className='flex flex-col gap-3'>{children}</div>
-}
+const FormContainer = ({ children }: FormContainerProps) => <div className='flex flex-col gap-3'>{children}</div>
+
+export default FormContainer

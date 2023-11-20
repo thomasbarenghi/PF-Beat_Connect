@@ -6,13 +6,14 @@ import { adminGetUsers, adminDeleteUser, setCurrentEditingUser } from '@/redux/s
 import { useAppSelector, useAppDispatch } from '@/redux/hooks'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { type UserClass } from '@/interfaces'
 
 const SellerDashboardOverview = () => {
   const [t] = useTranslation('global')
   const router = useRouter()
   const dispatch = useAppDispatch()
 
-  const [elementToDelete, setElementToDelete] = useState<any>(null)
+  const [elementToDelete, setElementToDelete] = useState<UserClass | null>(null)
   const { users } = useAppSelector((state) => state.admin.users)
   const usersData = users
 
@@ -25,7 +26,7 @@ const SellerDashboardOverview = () => {
     setElementToDelete(null)
   }
 
-  const handleEdit = async (data: any) => {
+  const handleEdit = async (data: UserClass) => {
     dispatch(setCurrentEditingUser(data))
     router.push(`/admin/users/${data._id}`)
   }

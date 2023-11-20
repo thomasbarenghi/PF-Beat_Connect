@@ -44,7 +44,7 @@ const ModalBeatManage = ({ fromClient, visibilityOwnedModal, beat, setVisibility
         <div>
           <MiniModalBox className='right-1 top-1  '>
             <div className='flex flex-col gap-1'>
-              {fromClientBtns.map((btn: any, index: number) => (
+              {fromClientBtns.map((btn: (typeof fromClientBtns)[0], index: number) => (
                 <Button key={index} text={t(btn.text)} action={btn.action} />
               ))}
             </div>

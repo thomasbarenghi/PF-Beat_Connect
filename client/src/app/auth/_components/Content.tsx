@@ -12,7 +12,8 @@ const Content = () => {
   const dispatch = useAppDispatch()
   const [error] = useState({}) as any
 
-  const handleInput = (e: any) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Code logic here
     // const { name, value } = e.target
     // const data = {
     //   email: name === 'email' ? value : '',

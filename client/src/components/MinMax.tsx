@@ -3,7 +3,7 @@ import { Input } from '@/components'
 
 interface MinMaxProps {
   seleccionados: any
-  setSeleccionados: any
+  setSeleccionados: (arg: any) => void
   label: string
 }
 

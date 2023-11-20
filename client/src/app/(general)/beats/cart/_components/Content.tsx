@@ -5,11 +5,12 @@ import { deleteFromCart } from '@/redux/slices/cart'
 import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
+import { type BeatsClass } from '@/interfaces'
 
 const Cart = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
-  const cartItems = useAppSelector((state) => state?.cart.cart) || ([] as any)
+  const cartItems = (useAppSelector((state) => state?.cart.cart) as BeatsClass[]) || ([] as BeatsClass[])
   // const user = useAppSelector((state) => state.client.authSession.session.current._id)
 
   const priceByAuthor = [] as any

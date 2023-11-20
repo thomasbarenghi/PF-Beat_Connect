@@ -3,7 +3,16 @@ import { useTranslation } from 'react-i18next'
 import { ReactSVG } from 'react-svg'
 import { usePathname } from 'next/navigation'
 
-const FaqsItem = ({ faq }: any) => {
+interface Props {
+  faq: {
+    title: string
+    content1: string
+    content2?: string
+    content3?: string
+  }
+}
+
+const FaqsItem = ({ faq }: Props) => {
   const pathname = usePathname()
   const [t] = useTranslation('global')
   const className = pathname.startsWith('/admin') ? 'text-black dark:text-white' : 'text-black'
@@ -16,9 +25,9 @@ const FaqsItem = ({ faq }: any) => {
       </div>
       <p className='text-base-light'>{t(faq.content1)}</p>
       <br />
-      <p className='text-base-light'>{t(faq.content2)}</p>
+      {faq?.content2 && <p className='text-base-light'>{t(faq?.content2)}</p>}
       <br />
-      <p className='text-base-light'>{t(faq.content3)}</p>
+      {faq?.content3 && <p className='text-base-light'>{t(faq?.content3)}</p>}
     </div>
   )
 }

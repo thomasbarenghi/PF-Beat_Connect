@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next'
 
 const AdminUserCreate = () => {
   const [t] = useTranslation('global')
-  const childRef = useRef<any>()
+  const childRef = useRef<HTMLFormElement | null>(null)
 
   const handleExternalSubmit = () => {
+    if (!childRef.current) return
     childRef.current.submit()
   }
 

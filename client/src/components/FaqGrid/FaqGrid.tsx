@@ -5,7 +5,7 @@ interface FaqsGridProps {
   mode: 'admin' | 'user'
 }
 
-export default function FaqsGrid({ mode }: FaqsGridProps) {
+const FaqsGrid = ({ mode }: FaqsGridProps) => {
   const datos = mode === 'admin' ? faqsAdmin : faqs
 
   return (
@@ -16,3 +16,5 @@ export default function FaqsGrid({ mode }: FaqsGridProps) {
     </div>
   )
 }
+
+export default FaqsGrid

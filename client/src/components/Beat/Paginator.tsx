@@ -6,11 +6,11 @@ import { setCurrentPage } from '@/redux/slices/beats'
 const PaginateBeats = () => {
   const [t] = useTranslation('global')
   const dispatch = useAppDispatch()
-  const { pages } = useAppSelector((state) => state.beats) as any
+  const { pages } = useAppSelector((state) => state.beats)
 
   const visiblePages = []
   for (let i = pages.current - 2; i <= pages.current + 2; i++) {
-    if (i > 0 && i <= pages.limit) {
+    if (i > 0 && pages.limit && i <= pages.limit) {
       visiblePages.push(i)
     }
   }

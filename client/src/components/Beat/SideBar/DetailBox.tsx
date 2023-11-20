@@ -1,10 +1,11 @@
 'use client'
+import { type BeatsClass } from '@/interfaces'
 import { useTranslation } from 'react-i18next'
 
 interface Props {
   msg1: string
   msg2: string
-  beat: any
+  beat: BeatsClass
   handleModalReview: () => void
   type: string
   hasReview: boolean

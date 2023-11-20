@@ -10,7 +10,7 @@ interface InputProps {
   type?: string
   step?: string
   prefix?: string
-  onChange?: (e: any) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   error?: string
   id?: string

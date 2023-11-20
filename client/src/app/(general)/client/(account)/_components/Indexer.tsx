@@ -3,7 +3,10 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { useTranslation } from 'react-i18next'
 
 interface IndexerItemProps {
-  item: any
+  item: {
+    title: string
+    visible: boolean
+  }
   index: number
 }
 

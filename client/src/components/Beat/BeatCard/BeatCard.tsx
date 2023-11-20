@@ -9,9 +9,10 @@ import BeatImage from './Image'
 import Price from './Price'
 import Title from './Title'
 import AuthorName from './Author'
+import { type BeatsClass } from '@/interfaces'
 
 interface Props {
-  beat: any
+  beat: BeatsClass
   variant: 'public' | 'private'
   mode?: 'grid' | 'flex'
   setVisibilityCreateReview: (visibility: boolean) => void
@@ -35,7 +36,7 @@ const BeatCard = ({
   const [visibilityOwnedBag, setVisibilityOwnedBag] = useState(false)
   const [tapVisible, setTapVisible] = useState(false)
   const { bougthBeats } = useAppSelector((state) => state.client.beats)
-  const ref = useRef<any>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const boughtBeat = Boolean(bougthBeats.find((boughtBeat) => boughtBeat._id === beat._id))
 
   const handleClick = async () => {
@@ -75,11 +76,11 @@ const BeatCard = ({
     <div
       ref={ref}
       className='relative w-full '
-      onClick={(e: any) => {
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation()
         handleClick()
       }}
-      onDoubleClick={(e: any) => {
+      onDoubleClick={(e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation()
         handleDoubleClick()
       }}

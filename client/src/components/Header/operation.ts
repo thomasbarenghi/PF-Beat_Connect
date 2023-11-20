@@ -1,3 +1,5 @@
+import { type TFunction } from 'i18next'
+
 export const headerStyles = {
   default: {
     background: '#00000000',
@@ -11,8 +13,8 @@ export const headerStyles = {
 }
 
 interface NavBuilderProps {
-  t: any
-  setHamburguerVisible: any
+  t: TFunction<'global', undefined>
+  setHamburguerVisible: (arg0: boolean) => void
   router: any
   setBecomeSellerVisible: (arg0: boolean) => void
   setPostBeatVisible: (arg0: boolean) => void

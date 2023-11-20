@@ -5,11 +5,12 @@ import { toast } from 'sonner'
 import axios from 'axios'
 import { toastError, toastSuccess } from '@/utils/toastStyles.const'
 import i18next from 'i18next'
+import { type Order } from '@/interfaces'
 const tokenAdmin = process.env.NEXT_PUBLIC_TOKEN_ADMIN
 
 const initialState = {
-  orders: [] as any,
-  currentEditingOrder: {} as any
+  orders: [] as Order[],
+  currentEditingOrder: null as Order | null
 }
 
 // ------------------ ASYNC THUNKS ------------------//

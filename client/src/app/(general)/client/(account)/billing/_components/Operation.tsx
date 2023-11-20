@@ -1,7 +1,15 @@
+import { type Order } from '@/interfaces'
+import { type TFunction } from 'i18next'
 import Image from 'next/image'
 
-export const rowsBuilder = (beatsFiltered: any, t: any, montoVar: any, operacionVar: any, fechaVar: any) =>
-  beatsFiltered.map((item: any) => ({
+export const rowsBuilder = (
+  beatsFiltered: Order[],
+  t: TFunction<'global', undefined>,
+  montoVar: string,
+  operacionVar: string,
+  fechaVar: string
+) =>
+  beatsFiltered.map((item) => ({
     beat: (
       <div className='flex items-center gap-4 '>
         <Image

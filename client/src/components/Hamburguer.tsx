@@ -116,7 +116,7 @@ const Hamburger = ({ options, setHamburguerVisible, userMenu, setPostBeatVisible
                 </p>
                 <div className='flex flex-col gap-4 '>
                   {pageIndex === 1 &&
-                    navHelp.map((item: any, index: number) => (
+                    navHelp.map((item, index: number) => (
                       <Link
                         href={item.url}
                         key={index}

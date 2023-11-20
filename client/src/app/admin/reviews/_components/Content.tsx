@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch } from '@/redux/hooks'
 import { adminGetReviews, adminDeleteReview, setCurrentEditingReview } from '@/redux/slices/admin/reviews'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { type ReviewsClass } from '@/interfaces'
 
 const SellerDashboardOverview = () => {
   const [t] = useTranslation('global')
@@ -14,7 +15,7 @@ const SellerDashboardOverview = () => {
   const { reviews } = useAppSelector((state) => state.admin.reviews)
   const reviewsData = reviews
 
-  const [reviewToDelete, setReviewToDelete] = useState(null) as any
+  const [reviewToDelete, setReviewToDelete] = useState<ReviewsClass | null>(null)
 
   const headers = ['Beat', 'Review', t('adminCreateReview.t1'), t('dashboardNav.actions')]
 
@@ -27,7 +28,7 @@ const SellerDashboardOverview = () => {
     setReviewToDelete(null)
   }
 
-  const handleEdit = async (data: any) => {
+  const handleEdit = async (data: ReviewsClass) => {
     dispatch(setCurrentEditingReview(data))
     router.push(`/admin/reviews/${data._id}`)
   }
@@ -76,7 +77,9 @@ const SellerDashboardOverview = () => {
           {t('dashboardNav.edit')}
         </button>
         <button
-          onClick={() => setReviewToDelete(item)}
+          onClick={() => {
+            setReviewToDelete(item)
+          }}
           className=' hover:background-primary-red-700 text-sm-semibold
               border-radius-estilo2 text-red-700 '
         >
